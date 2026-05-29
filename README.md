@@ -1,6 +1,6 @@
 # Pablo Palominos
 
-Applied AI systems builder focused on resilient LLM infrastructure and operational automation.
+Operator-minded systems builder transitioning into applied AI infrastructure.
 
 ---
 

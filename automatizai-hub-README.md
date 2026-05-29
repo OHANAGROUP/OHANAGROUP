@@ -42,6 +42,32 @@ graph TD
 
 ---
 
+## 🛑 Non-Goals
+
+- **Building a generalized autonomous agent platform:** The system does not attempt to solve generalized, open-ended agent planning. It focuses strictly on structured, predictable workflow execution.
+- **Replacing production-grade distributed schedulers:** We do not aim to replace enterprise-grade message brokers (e.g., Celery, Temporal) for high-scale microservices; this queue is optimized specifically for edge compute constraints and local file-based simplicity.
+- **Fine-tuning proprietary foundation models:** We optimize prompt flows, context routing, and CPU/GPU memory constraints, rather than training or fine-tuning proprietary architectures.
+
+---
+
+## ⚠️ Known Constraints
+
+- **Hardware Limits:** Local inference throughput is bounded by consumer-grade CPU/GPU memory bandwidth.
+- **Write Contention:** SQLite transactional write contention increases under heavy concurrent queue saturation.
+- **Tracing Limitations:** Distributed telemetry tracing currently lacks automated cross-worker correlation context propagation.
+
+---
+
+## 🛠️ Operational Constraints
+
+The platform is intentionally designed for:
+- **Small-team maintainability:** Operations requiring near-zero dedicated system administrator overhead.
+- **Intermittent connectivity environments:** Able to run and queue operations in completely offline or unstable network conditions.
+- **Low-cost inference routing:** Automatically falling back to local 1B–3B models to reduce commercial API costs to $0 when tasks allow.
+- **Gradual degradation instead of hard failure:** Graceful task retries and user tracking updates rather than unhandled server failures.
+
+---
+
 ## 📂 Project Structure
 
 ```txt
