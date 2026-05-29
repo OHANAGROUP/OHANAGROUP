@@ -29,6 +29,7 @@ graph TD
 - **Small-team operability:** Design self-healing pipelines that require minimal operations overhead.
 - **Observable by default:** Instrument all execution loops with Prometheus metrics and structured logging.
 - **Defensive AI integration:** Implement strict guardrails to sanitize input streams and mitigate prompt injection risks.
+- **Economic & Resource Efficiency:** Focus strictly on minimizing inference cost, reducing operational overhead, avoiding infrastructure sprawl, and preserving offline execution capability.
 
 ---
 
@@ -44,27 +45,32 @@ graph TD
 
 ## 🛑 Non-Goals
 
-- **Building a generalized autonomous agent platform:** The system does not attempt to solve generalized, open-ended agent planning. It focuses strictly on structured, predictable workflow execution.
-- **Replacing production-grade distributed schedulers:** We do not aim to replace enterprise-grade message brokers (e.g., Celery, Temporal) for high-scale microservices; this queue is optimized specifically for edge compute constraints and local file-based simplicity.
-- **Fine-tuning proprietary foundation models:** We optimize prompt flows, context routing, and CPU/GPU memory constraints, rather than training or fine-tuning proprietary architectures.
+- **Building generalized autonomous AGI agents:** The platform does not attempt to solve generalized, open-ended autonomous cognitive planning. It is dedicated strictly to deterministic, structured workflow execution.
+- **Replacing production-grade distributed schedulers:** We do not aim to replace large-scale enterprise message brokers (e.g., Celery, Temporal) for high-scale, distributed microservices; this queue is optimized specifically for edge compute constraints and local file-based simplicity.
+- **Fine-tuning proprietary foundation models:** We optimize prompt engineering, context routing, and local hardware execution boundaries, rather than training or fine-tuning foundation architectures.
+- **Creating high-frequency distributed inference clusters:** We do not focus on real-time, microsecond-level clustered inference distribution across massive GPU fleets.
+- **Supporting unbounded horizontal scaling:** We prioritize localized resource containment and predictable edge deployments over elastic, cloud-native auto-scaling.
 
 ---
 
 ## ⚠️ Known Constraints
 
-- **Hardware Limits:** Local inference throughput is bounded by consumer-grade CPU/GPU memory bandwidth.
-- **Write Contention:** SQLite transactional write contention increases under heavy concurrent queue saturation.
-- **Tracing Limitations:** Distributed telemetry tracing currently lacks automated cross-worker correlation context propagation.
+- **Hardware Limits:** Local inference throughput is constrained by consumer-grade CPU/GPU memory bandwidth.
+- **Write Contention:** SQLite WAL contention increases under heavy concurrent queue saturation.
+- **Tracing Limitations:** Cross-worker distributed tracing propagation is currently partial.
+- **Execution Strategy:** Local-first execution prioritizes resilience and data privacy over maximum raw throughput.
 
 ---
 
 ## 🛠️ Operational Constraints
 
-The platform is intentionally designed for:
-- **Small-team maintainability:** Operations requiring near-zero dedicated system administrator overhead.
-- **Intermittent connectivity environments:** Able to run and queue operations in completely offline or unstable network conditions.
-- **Low-cost inference routing:** Automatically falling back to local 1B–3B models to reduce commercial API costs to $0 when tasks allow.
-- **Gradual degradation instead of hard failure:** Graceful task retries and user tracking updates rather than unhandled server failures.
+The platform is intentionally designed around:
+- **Small-team maintainability:** Zero-overhead deployments requiring no dedicated operations teams.
+- **Intermittent connectivity environments:** Resilient queuing patterns that handle unstable networks and offline runtimes seamlessly.
+- **Low-cost inference routing:** Intentionally routing non-complex tasks to local models to preserve financial runway and avoid cloud fees.
+- **Local-first execution where feasible:** Retaining transactional telemetry and computation perimeters offline.
+- **Graceful degradation over hard failure:** Prioritizing gradual recovery loops and safe fallback modes over hard service crashes.
+- **Operational simplicity over infrastructure complexity:** Eliminating complex cloud cluster routing in favor of robust, local sandboxed containers.
 
 ---
 

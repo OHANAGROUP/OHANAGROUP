@@ -1,6 +1,6 @@
 # Pablo Palominos
 
-Operator-minded systems builder transitioning into applied AI infrastructure.
+Operator-minded systems builder focused on resilient AI infrastructure and production-grade automation.
 
 ---
 
