@@ -31,5 +31,5 @@ Operator-minded systems builder focused on resilient AI infrastructure and produ
 
 ## Connect
 - **Email:** [ppalominos@hotmail.com](mailto:ppalominos@hotmail.com)
-- **LinkedIn:** [linkedin.com/in/pablo-palominos-](https://www.linkedin.com/in/pablo-palominos-)
+- **LinkedIn:** [linkedin.com/in/pfpn2026dev](https://www.linkedin.com/in/pfpn2026dev)
 - **Location:** Santiago, Chile
