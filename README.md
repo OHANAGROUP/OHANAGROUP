@@ -1,25 +1,35 @@
 # Pablo Palominos
 
-Applied AI Systems Architect focused on resilient LLM infrastructure, workflow automation, and production-oriented AI systems.
+Applied AI systems builder focused on resilient LLM infrastructure and operational automation.
 
 ---
 
 ## Core Areas
-- **LLM Orchestration:** Multi-provider failover, local inference optimization (Ollama, hilos de CPU y keep-alive en RAM) y loops de tareas asíncronas perimetrales (`Obrero Soberano`).
-- **Workflow Automation:** Automatización web de alto rendimiento (scrapers asíncronos con Playwright, caché LRU en memoria y reintentos con backoff exponencial).
-- **Infrastructure & Resilience:** Entornos aislados y contenerizados (Docker, Docker Compose, redes perimetrales), watchdogs de telemetría en PowerShell y monitorización local.
-- **Security & Cryptography:** Cifrado simétrico (AES-256-GCM) para llaves y credenciales en memoria, firmas digitales HMAC SHA-256 para verificación de pasarelas de pago y políticas estrictas de seguridad RLS en base de datos (Supabase/PostgreSQL).
+- **LLM Orchestration:** Multi-provider failover pipelines, local inference resource optimization (CPU thread constraints and keep-alive RAM tuning) and resilient asynchronous task loops.
+- **Workflow Automation:** High-performance web automation utilizing asynchronous scraping loops (Playwright), stateful in-memory caching and exponential backoff retry policies.
+- **Infrastructure & Resilience:** Custom sandboxed runtimes (Docker, Docker Compose), edge computing nodes integration, and self-healing telemetry daemons (PowerShell Core).
+- **Security & Cryptography:** Symmetric data encryption (AES-256-GCM) for localized credential stores, HMAC SHA-256 signature verification for payment webhooks, and granular database Row Level Security (RLS).
 
 ---
 
 ## Main Projects
-- **[AutomatizAI Hub](https://github.com/ppalominos/automatizai-hub):** *Flagship Repository*. Orquestador agentico y motor local multi-agente perimetral diseñado para ejecución soberana con modelos de lenguaje de consumo local.
-- **[ALPA Hub (MCP Bridge)](https://github.com/ppalominos/alpa-hub):** Servidor y puente de código abierto diseñado bajo la especificación **Model Context Protocol (MCP)** para conectar LLMs remotos con flujos y bases de datos SQLite locales de manera semántica y segura.
-- **[Tramita / Dejadwebiar](https://github.com/ppalominos/dejadwebiar):** SaaS de automatización fiscal y tributaria de alto volumen en Chile, asegurado mediante firmas HMAC y encapsulamiento criptográfico.
+- **[AutomatizAI Hub](https://github.com/ppalominos/automatizai-hub):** *Flagship Repository*. Production-oriented LLM orchestration engine designed for resilient local workflow automation and multi-agent queue execution.
+- **[ALPA Hub (MCP Bridge)](https://github.com/ppalominos/alpa-hub):** Open-source bidirectional bridge designed under the **Model Context Protocol (MCP)** specification, allowing LLMs to safely query and orchestrate local SQLite and system environments.
+- **[Tramita / Dejadwebiar](https://github.com/ppalominos/dejadwebiar):** High-volume tax and legal process automation SaaS secured with HMAC request signatures and encrypted backend credentials.
 
 ---
 
-## Contact & Connections
+## Technical Principles
+- Offline-first where possible
+- Fail gracefully
+- Avoid vendor lock-in
+- Small-team operability
+- Observable systems by default
+- Defensive AI integration
+
+---
+
+## Connect
 - **Email:** [ppalominos@hotmail.com](mailto:ppalominos@hotmail.com)
 - **LinkedIn:** [linkedin.com/in/ppalominos](https://linkedin.com/in/ppalominos)
 - **Location:** Santiago, Chile
