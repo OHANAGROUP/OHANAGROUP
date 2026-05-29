@@ -150,7 +150,43 @@ graph TD
 
 ---
 
-## ⚠️ 5. Failure Modes Mapping
+## 🤖 5. Agentic Architecture (OpenClaw + Agente Soberano)
+
+Our workflow automation and local task execution layers are orchestrated via a dual-agent sovereign topology designed to operate efficiently under constrained local hardware.
+
+### A. Agent Topologies
+
+```mermaid
+graph LR
+    classDef orchestrator fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#fff;
+    classDef executor fill:#090d16,stroke:#10b981,stroke-width:2px,color:#fff;
+    classDef resource fill:#1e1b4b,stroke:#818cf8,stroke-width:1px,color:#a5b4fc;
+
+    A[OpenClaw Orchestrator]:::orchestrator -->|Delega planes estructurados| B[Agente Soberano Executor]:::executor
+    B -->|FileSystem & System Actions| C[Local Sandbox Workspace]:::resource
+    A -->|IPC / HTTP: Puerto 11434| D[Ollama CPU Engine]:::resource
+    D -->|Local Inference| E(Gemma4:q4 / Llama3.1):::resource
+```
+
+#### OpenClaw (Orchestrator)
+- **Role:** High-level coordinator, planner, and task decomposition engine.
+- **Operational Profile:** Bounded strictly to local CPU-bound inference (`Ollama` running `gemma4:q4` or lightweight Llama models). It executes task orchestration and schedules queues, enforcing a strict system keep-alive state.
+
+#### Agente Soberano (Executor)
+- **Role:** Sandboxed execution agent that translates structured JSON plans into system operations.
+- **Operational Profile:** Direct file writes, SQLite queries, and interaction with the FastAPI Gateway. Operates under sandboxed permissions with absolute telemetry logging, providing full execution trace audits.
+
+### B. Sovereign Business Pipeline
+The standard transaction flow for customer ingestion and automated site operations follows a rigid deterministic flow:
+1. **Lead Ingestion:** A new customer registers on `automatizai.cl`.
+2. **Control Hub Queue:** Lead metadata is ingested into the local Control Hub's SQLite queue.
+3. **OpenClaw Processing:** The Orchestrator picks up the task and evaluates it locally.
+4. **Specialized Collaboration:** Coordinates actions (e.g. system setup, SEO or legal parameters checking).
+5. **Sovereign Execution:** The Agente Soberano executes sandboxed filesystem configurations and database updates, committing the transaction.
+
+---
+
+## ⚠️ 6. Failure Modes Mapping
 
 Our physical nodes and local services are mapped against defensive software-mitigation patterns:
 
@@ -163,7 +199,7 @@ Our physical nodes and local services are mapped against defensive software-miti
 
 ---
 
-## ⚖️ 6. Architectural Tradeoffs
+## ⚖️ 7. Architectural Tradeoffs
 
 We accept conscious design trade-offs to protect maintainability and limit infrastructure sprawl:
 
@@ -176,7 +212,7 @@ We accept conscious design trade-offs to protect maintainability and limit infra
 
 ---
 
-## 🛑 7. Explicit Non-Goals
+## 🛑 8. Explicit Non-Goals
 
 We maintain discipline by explicitly excluding standard cloud-native concepts from our scope:
 - **No Kubernetes orchestration:** We rely on single-node Docker Compose simplicity.
@@ -188,7 +224,7 @@ We maintain discipline by explicitly excluding standard cloud-native concepts fr
 
 ---
 
-## 📊 8. Operational Economics
+## 📊 9. Operational Economics
 
 AutomatizAI infrastructure is built with high financial discipline:
 - **Low Idle Power Draw:** Edge hardware optimized for minimal physical power consumption.
@@ -198,7 +234,7 @@ AutomatizAI infrastructure is built with high financial discipline:
 
 ---
 
-## 📄 9. Architecture Decision Ledger (ADRs)
+## 📄 10. Architecture Decision Ledger (ADRs)
 
 We require every structural change to be written as an Architecture Decision Record (ADR) under `/docs/adr/`. Each ADR must contain our strict **5-Block Structure**:
 
@@ -210,7 +246,7 @@ We require every structural change to be written as an Architecture Decision Rec
 
 ---
 
-## 🔄 10. Product Creation & Production Review
+## 🔄 11. Product Creation & Production Review
 
 ### Lifecycle Step-by-Step
 1.  **Fijar Límites en README:** Initialize the repository by documenting *Non-Goals*, *Known Constraints*, *Failure Modes*, and *Operational Budgets*.
@@ -226,3 +262,4 @@ Before launching any product to production, the service must approve this checkl
 -   [ ] **Cost Impact:** Have inference cost projections been estimated and capped?
 -   [ ] **Recovery Path:** Has manual worker crash and environment recovery been tested successfully?
 -   [ ] **Logs Structured:** Are logs emitted as JSON objects containing unique task trace IDs?
+
